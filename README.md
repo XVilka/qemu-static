@@ -11,18 +11,17 @@ The overall strategy is to use Alpine Linux to host a QEMU build and link
 statically to all possible libraries.
 
 
-## build docker image
-```
-docker build --tag qemu .
+## Usage
+
+Just run the script that will build the container, run it, and copy the ready
+artifacts from it:
+
+```sh
+./build
 ```
 
-## run container, save ID, copy artifact(s)
-```
-docker run -it --cidfile=qemu.cid qemu true
-docker cp "$(cat qemu.cid):work/artifact/." artifact
-```
+Then review final artifact(s)
 
-## review final artifact(s)
-```
+```sh
 ls -al artifact/
 ```
