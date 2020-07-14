@@ -71,3 +71,18 @@ index 00334e5b21..4a3c07e0be 100644
      return syscall(__NR_memfd_create, name, flags);
 -- 
 
+diff --git a/include/qemu/osdep.h b/include/qemu/osdep.h
+index 979a403984..a305b16623 100644
+--- a/include/qemu/osdep.h
++++ b/include/qemu/osdep.h
+@@ -104,10 +104,6 @@ extern int daemon(int, int);
+ #include <setjmp.h>
+ #include <signal.h>
+ 
+-#ifdef HAVE_SYS_SIGNAL_H
+-#include <sys/signal.h>
+-#endif
+-
+ #ifndef _WIN32
+ #include <sys/wait.h>
+ #else
