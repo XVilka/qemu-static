@@ -1,0 +1,21 @@
+#!/bin/sh
+
+DOCKCMD="docker"
+# Prefer podman if installed
+if [ -x "$(command -v podman)" ]; then
+	DOCKCMD="podman"
+fi
+
+# 1. Build container
+echo "Building container..."
+"${DOCKCMD}" build --tag qemu-static . || exit 1
+
+# 2. Run container to copy artifacts from
+echo "Running container..."
+"${DOCKCMD}" run -it --cidfile=qemu-static.cid qemu-static true
+
+# 3. Copy artifacts
+echo "Copying artifacts from container..."
+"${DOCKCMD}" cp "$(cat qemu-static.cid):artifact/." artifact || exit 1
+
+
