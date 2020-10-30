@@ -13,7 +13,7 @@ fi
 
 # 1. Build container
 echo "Building container..."
-"${DOCKCMD}" build --tag qemu-static . || exit 1
+"${DOCKCMD}" build --no-cache --tag qemu-static . || exit 1
 
 # 2. Run container to copy artifacts from
 echo "Running container..."

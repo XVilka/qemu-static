@@ -10,6 +10,7 @@ RUN apk add\
  make\
  python2\
  python3\
+ py3-setuptools\
  gcc\
  libc-dev\
  libtool\
