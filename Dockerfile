@@ -15,6 +15,8 @@ RUN apk add\
  libc-dev\
  libtool\
  pkgconf\
+ meson\
+ ninja\
  linux-headers\
  glib-dev glib-static\
  zlib-dev zlib-static\
